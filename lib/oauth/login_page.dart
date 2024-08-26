@@ -22,14 +22,14 @@ class LoginPage extends StatelessWidget {
                 await _kakaoService.kakaoLogin();
               },
               child: Container( // 크기 조절용
-                width: 400,
-                height: 50,
+                width: 300,
+                height: 80,
                 decoration: BoxDecoration(
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
                   child: Image.asset(
-                    'assets/images/kakao_login_medium_wide.png',
+                    'assets/images/kakao_login_large_narrow.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -41,16 +41,18 @@ class LoginPage extends StatelessWidget {
               onTap: () async {
                 await _naverService.login(context);
               },
-              child: Container( // 크기 조절용
-                width: 400,
-                height: 50,
-                decoration: BoxDecoration(
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
-                  child: Image.asset(
-                    'assets/images/btnG_완성형.png',
-                    fit: BoxFit.cover,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0), // 내부 패딩 10px
+                child: Container( // 크기 조절용
+                  width: 300,
+                  height: 80,
+                  decoration: BoxDecoration(),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
+                    child: Image.asset(
+                      'assets/images/btnG_완성형.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
