@@ -37,26 +37,22 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             // Naver 로그인 버튼
-            ElevatedButton(
-              onPressed: () async {
+            InkWell(
+              onTap: () async {
                 await _naverService.login(context);
               },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), backgroundColor: Colors.green, // 버튼 배경색
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+              child: Container( // 크기 조절용
+                width: 400,
+                height: 50,
+                decoration: BoxDecoration(
                 ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(width: 10),
-                  Text(
-                    'Naver 로그인',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
+                  child: Image.asset(
+                    'assets/images/btnG_완성형.png',
+                    fit: BoxFit.cover,
                   ),
-                  SizedBox(width: 10),
-                ],
+                ),
               ),
             ),
           ],
