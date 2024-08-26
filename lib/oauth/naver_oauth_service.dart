@@ -9,7 +9,7 @@ class NaverOAuthService {
   final String _tokenEndpoint = 'https://nid.naver.com/oauth2.0/token';
   final String _clientId = 'mlwJlo7cWuSqQjBF09JL';
   final String _clientSecret = 'E4RAP0401T';
-  final String _redirectUri = 'studyapp'; // iOS URL Scheme
+  final String _redirectUri = 'studyapp://callback'; // 고정된 리디렉션 URI
   final String _scope = 'profile';
 
   Future<void> login(BuildContext context) async {
