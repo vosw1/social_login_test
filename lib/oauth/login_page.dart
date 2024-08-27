@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'kakao_oauth_service.dart';
-import 'naver_oauth_service.dart';
+import 'package:study_app/oauth/kakao_login_service.dart';
+import 'package:study_app/oauth/logout_service.dart';
+import 'package:study_app/oauth/naver_login_service.dart';
 
 class LoginPage extends StatelessWidget {
-  final KakaoOAuthService _kakaoService = KakaoOAuthService();
-  final NaverOAuthService _naverService = NaverOAuthService();
+  final KakaoLoginService _kakaoService = KakaoLoginService();
+  final NaverLoginService _naverService = NaverLoginService();
+  final LogoutService _logoutService = LogoutService();
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,13 @@ class LoginPage extends StatelessWidget {
             // Kakao 로그인 버튼
             InkWell(
               onTap: () async {
-                await _kakaoService.kakaoLogin();
+                await _kakaoService.login();
               },
-              child: Container( // 크기 조절용
-                width: 300,
-                height: 80,
-                decoration: BoxDecoration(
-                ),
+              child: Container(
+                // 크기 조절용
+                width: 200,
+                height: 50,
+                decoration: BoxDecoration(),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
                   child: Image.asset(
@@ -39,13 +41,14 @@ class LoginPage extends StatelessWidget {
             // Naver 로그인 버튼
             InkWell(
               onTap: () async {
-                await _naverService.login(context);
+                await _naverService.login();
               },
               child: Padding(
                 padding: const EdgeInsets.all(10.0), // 내부 패딩 10px
-                child: Container( // 크기 조절용
-                  width: 300,
-                  height: 80,
+                child: Container(
+                  // 크기 조절용
+                  width: 200,
+                  height: 50,
                   decoration: BoxDecoration(),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10), // 이미지 모서리 둥글게
@@ -55,6 +58,24 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+            ), // 로그아웃 버튼
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                await _logoutService.logoutFromBoth(); // 로그아웃 처리
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.grey, // 네이버의 쨍한 초록색
+                fixedSize: Size(200, 50), // 버튼의 너비를 200으로 설정 (높이는 50으로 설정)
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), // 모서리를 각지게 설정
+                ),
+              ),
+              child: Text(
+                '로그아웃',
+                style: TextStyle(fontSize: 18), // 텍스트 크기를 18로 설정
               ),
             ),
           ],

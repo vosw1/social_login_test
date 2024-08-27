@@ -1,10 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
-// 카카오 로그인 서비스
-class KakaoOAuthService {
+class KakaoLoginService {
 
-  Future<void> kakaoLogin() async {
+  Future<void> login() async {
     // 카카오 실행 가능 여부 확인
     if (await isKakaoTalkInstalled()) {
       try {
@@ -35,16 +34,6 @@ class KakaoOAuthService {
       } catch (error) {
         print('카카오계정으로 로그인 실패 $error');
       }
-    }
-  }
-
-  // 카카오 로그아웃
-  Future<void> kakaoLogout() async {
-    try {
-      await UserApi.instance.logout();
-      print('로그아웃 성공, SDK에서 토큰 삭제');
-    } catch (error) {
-      print('로그아웃 실패, SDK에서 토큰 삭제 $error');
     }
   }
 }
