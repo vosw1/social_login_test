@@ -16,10 +16,17 @@ class LogoutService {
   // Naver 로그아웃 처리
   Future<void> logoutFromNaver() async {
     try {
-      await FlutterNaverLogin.logOut();
-      print("Naver logout successful");
-    } catch (e) {
-      print("Naver logout failed: $e");
+      final result = await FlutterNaverLogin.logOut();
+      print('로그아웃 성공: $result');
+
+      // // 서버 로그아웃 요청을 해야 브라우저에서도 로그아웃 되어 자동로그인 방지됨
+      // final response = await http.post(
+      //   Uri.parse('https://your-server.com/logout'),
+      //   headers: {'Authorization': 'Bearer $yourAccessToken'},
+      // );
+
+    } catch (error) {
+      print('로그아웃 실패, 에러: $error');
     }
   }
 

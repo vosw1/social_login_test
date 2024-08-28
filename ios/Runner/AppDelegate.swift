@@ -15,7 +15,7 @@ import UIKit
     thirdConn?.isInAppOauthEnable = true
 
     // 서비스 파라미터 설정
-    thirdConn?.serviceUrlScheme = "studyapp"
+    thirdConn?.serviceUrlScheme = "socaillogin"
     thirdConn?.consumerKey = "mlwJlo7cWuSqQjBF09JL"
     thirdConn?.consumerSecret = "E4RAP0401T"
     thirdConn?.serviceAppName = "studyapp"

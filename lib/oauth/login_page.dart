@@ -59,8 +59,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-            ), // 로그아웃 버튼
+            ),
             SizedBox(height: 20),
+            // 로그아웃 버튼
             ElevatedButton(
               onPressed: () async {
                 await _logoutService.logoutFromBoth(); // 로그아웃 처리

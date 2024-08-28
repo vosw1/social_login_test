@@ -55,7 +55,7 @@
                 <!-- kakao login -->
                 <string>kakao531ceedd39db4c46ed36b76000ed32a4</string>
                 <!-- naver login -->
-                <string>studyapp</string>
+                <string>socaillogin</string>
             </array>
         </dict>
     </array>
@@ -67,7 +67,7 @@
     </array>
 
     <key>naverServiceAppUrlScheme</key>
-    <string>studyapp</string>
+    <string>socaillogin</string>
 
     <!-- naver client_id -->
     <key>naverConsumerKey</key>
